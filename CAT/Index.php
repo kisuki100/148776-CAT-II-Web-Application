@@ -8,80 +8,82 @@
     
     <style>
     body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1a1a1a; /* Dark background color */
+    color: #ccc; /* Light gray text color */
+}
 
-    header {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-    }
+header {
+    background-color: #005000; /* Dark green header */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
 
-    main {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 10px; /* Adjusted padding for a cleaner look */
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        text-align: center; /* Align text to the center within the main container */
-    }
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px; /* Increased padding for better spacing */
+    background-color: #222; /* Slightly lighter background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    border-radius: 10px;
+}
 
-    label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 8px;
-        margin-left: 20px;
-    }
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px; /* Improved spacing */
+    color: #fff; /* Label text color */
+}
 
-    /* Style for email and text input fields */
-    input[type="email"],
-    input[type="text"],
-    textarea {
-        width: 65%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        font-size: 16px;
-        box-sizing: border-box;
-        margin-left: 20px;
-    }
+/* Styled input fields */
+input[type="email"],
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better input field appearance */
+    margin-bottom: 15px; /* Improved spacing */
+    border: 2px solid #336633; /* Dark green border */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #333; /* Input text color */
+}
 
-    /* Style for the message input field - making it a bit bigger */
-    textarea {
-        height: 150px;
-    }
+/* Larger textarea for the message */
+textarea {
+    height: 150px;
+}
 
-    input[type="submit"] {
-        background-color: #007BFF;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        cursor: pointer;
-        margin-left: 20px;
-    }
+input[type="submit"] {
+    background-color: #007BFF; /* Blue button color */
+    color: #fff;
+    padding: 12px 24px; /* Adjusted padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
 
-    /* Adjust button style on hover */
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
+/* Button hover effect */
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
 
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
+footer {
+    background-color: #005000; /* Dark green footer */
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
 </style>
 </head>
 <body>
