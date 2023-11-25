@@ -6,7 +6,8 @@
     <title>signin Page</title>
     <link rel="stylesheet" href="CSS/style.css" />
     <style>
-        body {
+        body
+         {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4; /* Light gray background */
             text-align: center;
@@ -59,8 +60,14 @@
     </style>
 </head>
 <body>
-    <h2>Login</h2>
-    <form action="login.php" method="post">
+    <!-- top navigation starts here -->
+ <?php require "navigation.php"; ?>
+    <!-- top navigation ends here -->
+    <div class="header">
+    <h1>Sign In Here</h1>
+</div>
+
+    <form action="Sign In.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
 

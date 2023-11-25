@@ -1,156 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARROW Cat2</title>
     <link rel="stylesheet" href="CSS/style.css" />
-    
+
     <style>
-    body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #1a1a1a; /* Dark background color */
-    color: #ccc; /* Light gray text color */
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #005000; /* Dark green text color */
+            background-color: #f4f4f4; /* Light gray background */
+        }
 
-header {
-    background-color: #005000; /* Dark green header */
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
+        h3 {
+            text-align: center;
+            color: #005000; /* Dark green text color */
+        }
 
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px; /* Increased padding for better spacing */
-    background-color: #222; /* Slightly lighter background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    border-radius: 10px;
-}
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            box-sizing: border-box;
+        }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 10px; /* Improved spacing */
-    color: #fff; /* Label text color */
-}
+        .content img {
+            max-width: 40%;
+            margin-right: 20px;
+        }
 
-/* Styled input fields */
-input[type="email"],
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 12px; /* Increased padding for better input field appearance */
-    margin-bottom: 15px; /* Improved spacing */
-    border: 2px solid #336633; /* Dark green border */
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-    color: #333; /* Input text color */
-}
+        .sidebar {
+            width: 50%;
+        }
 
-/* Larger textarea for the message */
-textarea {
-    height: 150px;
-}
-
-input[type="submit"] {
-    background-color: #007BFF; /* Blue button color */
-    color: #fff;
-    padding: 12px 24px; /* Adjusted padding */
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-/* Button hover effect */
-input[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-footer {
-    background-color: #005000; /* Dark green footer */
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-
-</style>
+        .footer {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
- <!-- top navigation starts here -->
- <?php require "navigation.php"; ?>
+    <!-- top navigation starts here -->
+    <?php require "navigation.php"; ?>
     <!-- top navigation ends here -->
-<div class="header">
-    <h1>Register here</h1>
-</div>
-<!-- the main content section starts here -->
-<div class="row">
-    <div class="content">
-<h3 >Main content</h3>
+    <div class="header">
+        <h1>Welcome to the Author's House</h1>
+    </div>
+    <!-- the main content section starts here -->
+    <div class="row">
+        <div class="content">
+            <img src="images/arrow.jpg" alt="Arrow Image">
+            <div class="sidebar">
+<p>The Author's Guild! We are thrilled to have you join our community of passionate writers and literary enthusiasts. As a member, you'll have access to a wealth of resources, support, and opportunities to enhance your writing journey.</p>
 
+<p>Joining our guild opens doors to a vibrant network of like-minded individuals sharing their stories, experiences, and knowledge. Here, camaraderie thrives, and collaborations are encouraged, fostering an environment where creativity flourishes.</p>
 
+<p>As part of our community, you'll gain invaluable insights through workshops, seminars, and discussions led by industry experts. Explore new writing techniques, learn about publishing trends, and refine your craft alongside fellow authors.</p>
 
-<form action="processes/AutRegistration.php" method="POST">
-    <label for="AuthorId">Author Id:</label><br>
-    <input type="text" name="AuthorId" id="AuthorId" placeholder="Enter your Id" maxlength="60" required /><br><br>
+<p>At the Author's Guild, every writer's voice matters. We celebrate diversity in storytelling, valuing each narrative's unique perspective. Whether you're a seasoned wordsmith or an aspiring writer, you'll find encouragement and inspiration here.</p>
 
-    <label for="AuthorFullName">Author Full Name:</label><br>
-    <input type="text" name="AuthorFullName" id="AuthorFullName" placeholder="Enter your full name" maxlength="60" /><br><br>
+<p>Embrace the opportunity to participate in exclusive events and literary gatherings, connecting with established authors and emerging talents. Forge friendships, seek mentorship, and grow your writing skills in an inclusive and supportive environment.</p>
 
-    <label for="AuthorEmail">Author Email:</label><br>
-    <input type="email" name="AuthorEmail" id="AuthorEmail" placeholder="Enter your email" maxlength="60" /><br><br>
-
-    <label for="AuthorAddress">Author Address:</label><br>
-    <input type="text" name="AuthorAddress" id="AuthorAddress" placeholder="Enter your Address" maxlength="60" /><br><br>
-
-    <label for="AuthorDateOfBirth">Date Of Birth:</label><br>
-    <input type="date" name="AuthorDateOfBirth" id="AuthorDateOfBirth" required /><br><br>
-
-    <label for="AuthorBiography">Author Biography:</label><br>
-    <textarea name="AuthorBiography" id="AuthorBiography" placeholder="Enter your biography" rows="10" required><?php echo isset($author) ? $author["AuthorBiography"] : ''; ?></textarea><br><br>
-    
-
-    <!-- Hidden input for "not suspended" -->
-    <input type="hidden" name="AuthorSuspended" value="0">
-
-    <!-- Checkbox for "suspended" -->
-    <input type="checkbox" name="AuthorSuspended" id="AuthorSuspended" value="1">
-    <label for="AuthorSuspended">Suspended</label><br><br>
-     
-
-    <input type="submit" name="send_AuthorBiography" value="Send AuthorBiography" />
-</form>
-</div>
-<div class="sidebar">
-    <h3>Welcome in the Authors House</h3>
-   <body>
-    <p>Welcome to the Author's Guild! We are thrilled to have you join our community of passionate writers and literary enthusiasts. As a member, you'll have access to a wealth of resources, support, and opportunities to enhance your writing journey.</p>
-    
-    <p>At the Author's Guild, we believe in the power of words to inspire, educate, and connect people. Whether you're a seasoned author or just starting on your writing adventure, our guild is a place where creativity flourishes and stories come to life.</p>
-    
-    <p>Explore our forums, engage in discussions with fellow writers, and share your experiences. Our community is diverse, welcoming, and dedicated to fostering a collaborative environment where ideas flourish and dreams are realized.</p>
-    
-    <p>As a member, you'll gain insights into the world of publishing, writing techniques, and industry trends. Take advantage of workshops, webinars, and exclusive events designed to sharpen your skills and broaden your literary horizons.</p>
-    
-    <p>Whether you write fiction or non-fiction, poetry or prose, your unique voice is valued here. The Author's Guild is more than just an association; it's a supportive network where writers inspire and uplift one another.</p>
-    
-    <p>Thank you for choosing the Author's Guild as your literary home. Get ready to embark on a journey of creativity, growth, and camaraderie. Welcome aboard!</p>
+                <!-- Rest of your paragraphs here -->
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright &copy; DBIT 2023
+    </div>
 </body>
-</div>
-</div>
-<!-- the main content section ends here -->
-<div class="footer">
-copyright &copy; DBIT 2023
-</div>
-</body>
+
 </html>

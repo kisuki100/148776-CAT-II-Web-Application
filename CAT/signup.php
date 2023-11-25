@@ -8,46 +8,60 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7; /* Lighter background color */
+            color: #444; /* Dark text color */
+        }
+
+        header {
+            background-color: #1e8449; /* Green header */
+            color: #fff;
             text-align: center;
-            margin-top: 50px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
+        }
+
+        main {
+            max-width: 90%; /* Adjusted width */
+            margin: 15cm auto; /* Centering with 15cm margin */
+            padding: 20px;
+            background-color: #e0e0e0; /* Light gray background */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            text-align: left;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333; /* Label text color */
+        }
+
+        input[type="email"],
+        input[type="text"],
+        textarea,
+        input[type="date"],
+        input[type="submit"],
+        input[type="checkbox"] {
+            width: calc(100% - 24px); /* Adjusted width */
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #1e8449; /* Green border */
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
             color: #333;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+        textarea {
+            height: 150px;
         }
 
         input[type="submit"] {
-            background-color: #007bff;
+            background-color: #3498db; /* Blue button color */
             color: #fff;
-            padding: 12px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             font-size: 18px;
@@ -55,32 +69,62 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        footer {
+            background-color: #1e8449; /* Green footer */
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
-
 <body>
-    <h2>Signup</h2>
-    <form action="signup_process.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+ <!-- top navigation starts here -->
+ <?php require "navigation.php"; ?>
+    <!-- top navigation ends here -->
+<div class="header">
+    <h1>Register here</h1>
+</div>
+<!-- the main content section starts here -->
+<div class="row">
 
-        <br>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
 
-        <br>
+<form action="processes/AutRegistration.php" method="POST">
+    <label for="AuthorId">Author Id:</label><br>
+    <input type="text" name="AuthorId" id="AuthorId" placeholder="Enter your Id" maxlength="60" required /><br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <label for="AuthorFullName">Author Full Name:</label><br>
+    <input type="text" name="AuthorFullName" id="AuthorFullName" placeholder="Enter your full name" maxlength="60" /><br><br>
 
-        <br>
+    <label for="AuthorEmail">Author Email:</label><br>
+    <input type="email" name="AuthorEmail" id="AuthorEmail" placeholder="Enter your email" maxlength="60" /><br><br>
 
-        <input type="submit" value="Signup">
-    </form>
-</body>
+    <label for="AuthorAddress">Author Address:</label><br>
+    <input type="text" name="AuthorAddress" id="AuthorAddress" placeholder="Enter your Address" maxlength="60" /><br><br>
 
-</html>
+    <label for="AuthorDateOfBirth">Date Of Birth:</label><br>
+    <input type="date" name="AuthorDateOfBirth" id="AuthorDateOfBirth" required /><br><br>
+
+    <label for="AuthorBiography">Author Biography:</label><br>
+    <textarea name="AuthorBiography" id="AuthorBiography" placeholder="Enter your biography" rows="10" required><?php echo isset($author) ? $author["AuthorBiography"] : ''; ?></textarea><br><br>
+    
+
+    <!-- Hidden input for "not suspended" -->
+    <input type="hidden" name="AuthorSuspended" value="0">
+
+    <!-- Checkbox for "suspended" -->
+    <input type="checkbox" name="AuthorSuspended" id="AuthorSuspended" value="1">
+    <label for="AuthorSuspended">Suspended</label><br><br>
+     
+
+    <input type="submit" name="send_AuthorBiography" value="Send AuthorBiography" />
+</form>
+</div>
+
 </html>
